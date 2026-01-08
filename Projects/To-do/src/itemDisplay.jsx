@@ -3,7 +3,7 @@ import {TodoItemsContext} from '../src/store/todo-item-store'
 import { useContext } from "react";
 
 function DisplayItem() {
-const {todoContant,removeItem} = useContext(TodoItemsContext)
+const {todoContant} = useContext(TodoItemsContext)
 
 
   return (

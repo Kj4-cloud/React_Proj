@@ -4,12 +4,13 @@ import { useContext } from "react";
 
 const WelcomeMessage = () => {
  
-     const contextObj = useContext(TodoItemsContext);
-  const todoContant =contextObj.todoContant;
+    const {todoContant} = useContext(TodoItemsContext)
 
   return (
     <center>
                      {todoContant.length==0 && <h2>Welcome Add Your ToDo Task</h2>}
+
+              
     </center>
   );
 };

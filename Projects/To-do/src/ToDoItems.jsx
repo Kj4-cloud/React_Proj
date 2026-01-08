@@ -6,7 +6,7 @@ import { useContext } from "react";
 function ToDoIteams({ todoitem, todoDate}) {
 
 
-  const {todoContant,removeItem} = useContext(TodoItemsContext)
+  const {removeItem} = useContext(TodoItemsContext)
   
   return (
     <center className="todo-container">

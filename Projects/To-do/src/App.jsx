@@ -30,15 +30,14 @@ function App() {
         todoContant,
         addnewItem,
         removeItem,
-      }}>
-
+      }}
+    >
       <>
         <To_do />
         <WelcomeMessage></WelcomeMessage>
         <DisplayItem />
       </>
     </TodoItemsContext.Provider>
-
   );
 }
 
