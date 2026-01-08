@@ -1,0 +1,20 @@
+.js_Error{
+  background-color: brown;
+  color: aliceblue;
+}
+
+.js_food_name{
+  font-weight: bold;
+  background-color: rgba(221, 210, 210, 0.952);
+  color: rgb(0, 0, 0);
+  border:2px solid rgb(0, 0, 0) ;
+  font-family:'Times New Roman', Times, serif ;
+  text-align: left;
+ 
+}
+.Health_food{
+  text-align: center;
+}
+
+
+

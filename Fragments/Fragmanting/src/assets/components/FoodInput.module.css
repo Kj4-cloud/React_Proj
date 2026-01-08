@@ -1,0 +1,23 @@
+.FoodInput{
+  background-color: #f4f4f4;
+  min-width:60vw;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.Button_Input_Add{
+  background-color: #60d164;
+  color: white;
+  border: 2px solid #000000;
+
+  border-radius: 5px;
+  cursor: pointer;
+  height: 37px;
+  margin-left: 2px;
+  
+}
+
+.Button_Input_Add:hover{
+  background-color: #45a049;
+}

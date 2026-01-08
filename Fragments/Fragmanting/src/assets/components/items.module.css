@@ -1,0 +1,19 @@
+.js_food_name{
+  background-color: rgb(0, 0, 0);
+  color: rgb(0, 255, 255);
+  border:2px solid rgb(100, 98, 98) ;
+  font-family:'Times New Roman', Times, serif ;
+  text-align: center;
+ 
+}
+
+.Buy_Button{
+  background-color: rgb(27, 203, 54);
+  color: rgb(0, 0, 0);
+  border:2px solid rgb(13, 12, 12) ;
+  font-family:'Times New Roman', Times, serif ;
+  text-align: center;
+  border-radius: 5px;
+  margin-left: 5px;
+  float: right;
+}

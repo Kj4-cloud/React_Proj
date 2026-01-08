@@ -1,0 +1,13 @@
+.container{
+    max-width: 600px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.AddButton{
+    width: 70px;
+}
+
+.Input_Task{
+  width:170px
+}
