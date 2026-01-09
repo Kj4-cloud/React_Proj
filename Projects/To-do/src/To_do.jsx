@@ -16,8 +16,8 @@ const {addnewItem} = useContext(TodoItemsContext)
     const TodoTask = todoName.current.value;
     const TodoDate = dueDateTodo.current.value;
     addnewItem(TodoTask, TodoDate);
-
-
+    todoName.current.value = "";
+    dueDateTodo.current.value = "";
   };
 
   return (
