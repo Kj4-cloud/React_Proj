@@ -1,6 +1,4 @@
-import { useState, useRef } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+
 import To_do from "./To_do";
 import ToDoIteams from "./ToDoItems";
 import DisplayItem from "./itemDisplay";
@@ -9,7 +7,6 @@ import "./App.css";
 import {TodoItemsContextProvider} from "./store/todo-item-store";
 
 function App() {
-
   return (
     <>
     <TodoItemsContextProvider>
