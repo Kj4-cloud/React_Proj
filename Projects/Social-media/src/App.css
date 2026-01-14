@@ -1,0 +1,16 @@
+.app-container{
+  display:flex;
+}
+
+.inner-component{
+width: 100%;
+}
+
+.side-bar{
+  width: 250px;
+  height: 100vh;
+}
+
+.active{
+  background-color: #9b3030;
+}
