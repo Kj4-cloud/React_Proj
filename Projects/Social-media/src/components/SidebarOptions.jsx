@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { PostList } from "./PostList";
 import { CreatePost } from "./CreatePost";
-import { DeletedPost } from "./deletePost";
+import { Other } from "./Other";
 import {PostListContext} from '../Store/posts-list-store'
 
 
@@ -20,7 +20,7 @@ const pagerendrig = () =>{
       return <CreatePost />
    }
    else{
-     return <DeletedPost />
+     return <Other />
    }
     
 

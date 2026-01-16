@@ -7,7 +7,7 @@ export const Sidebar = () => {
   
   const handleOnclick = (item) => {
       setSelectedTab(item);
-  
+      console.log(item)
   };
 
   return (
@@ -91,7 +91,7 @@ export const Sidebar = () => {
               >
                 <use xlinkHref="#speedometer2"></use>
               </svg>
-              Deletepost
+              Other 
             </a>{" "}
           </li>{" "}
      
