@@ -1,0 +1,110 @@
+import {PostListContext} from '../Store/posts-list-store'
+import { useContext } from "react";
+
+export const Sidebar = () => {
+
+  const {setSelectedTab,selectedTab} = useContext(PostListContext)
+  
+  const handleOnclick = (item) => {
+      setSelectedTab(item);
+      console.log(item)
+  };
+
+  return (
+    <>
+      <div
+        className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark side-bar"
+        // style={{}}
+      >
+        {" "}
+        <a
+          href="/"
+          className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        >
+          {" "}
+          <svg
+            className="bi pe-none me-2"
+            width="40"
+            height="32"
+            aria-hidden="true"
+          >
+            <use xlinkHref="#bootstrap"></use>
+          </svg>{" "}
+          <span className="fs-4">Sidebar</span>{" "}
+        </a>{" "}
+        <hr />{" "}
+        <ul className="nav nav-pills flex-column mb-auto">
+          {" "}
+          <li className="nav-item" onClick={()=>handleOnclick("Home")}>
+            {" "}
+            <a
+              href="#"
+              className={`nav-link  text-white 
+                 ${selectedTab === "Home" && "active" }`}
+              aria-current="page"
+            >
+              {" "}
+              <svg
+                className="bi pe-none me-2"
+                width="16"
+                height="16"
+                aria-hidden="true"
+              >
+                <use xlinkHref="#home"></use>
+              </svg>
+              Home
+            </a>{" "}
+          </li>{" "}
+          <li onClick={()=>handleOnclick("Createpost")}>
+            {" "}
+            <a
+              href="#"
+              className={`nav-link  text-white 
+                 ${selectedTab === "Createpost" && "active" }`}
+            >
+              {" "}
+              <svg
+                className="bi pe-none me-2"
+                width="16"
+                height="16"
+                aria-hidden="true"
+              >
+                <use xlinkHref="#speedometer2"></use>
+              </svg>
+              Createpost
+            </a>{" "}
+          </li>{" "}
+
+        <li onClick={()=>handleOnclick("Deletepost")}>
+            {" "}
+            <a
+              href="#"
+              className={`nav-link  text-white 
+                 ${selectedTab === "Deletepost" && "active" }`}
+            >
+              {" "}
+              <svg
+                className="bi pe-none me-2"
+                width="16"
+                height="16"
+                aria-hidden="true"
+              >
+                <use xlinkHref="#speedometer2"></use>
+              </svg>
+              Other 
+            </a>{" "}
+          </li>{" "}
+     
+
+
+
+
+
+
+
+        </ul>{" "}
+        <hr />{" "}
+      </div>
+    </>
+  );
+};

@@ -32,6 +32,6 @@ const TodoItemsContextProvider =({children})=>{
       {children}
     </TodoItemsContext.Provider>
 
- }
+ };
 
  export { TodoItemsContextProvider };
