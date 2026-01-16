@@ -1,6 +1,13 @@
-export const Sidebar = ({ selectedTab, setSelectedTab }) => {
-  const handleOnclick = (tabName) => {
-      setSelectedTab(tabName)
+import {PostListContext} from '../Store/posts-list-store'
+import { useContext } from "react";
+
+export const Sidebar = () => {
+
+  const {setSelectedTab,selectedTab} = useContext(PostListContext)
+  
+  const handleOnclick = (item) => {
+      setSelectedTab(item);
+  
   };
 
   return (
@@ -28,12 +35,12 @@ export const Sidebar = ({ selectedTab, setSelectedTab }) => {
         <hr />{" "}
         <ul className="nav nav-pills flex-column mb-auto">
           {" "}
-          <li className="nav-item" onClick={()=>{handleOnclick("Home")}}>
+          <li className="nav-item" onClick={()=>handleOnclick("Home")}>
             {" "}
             <a
               href="#"
               className={`nav-link  text-white 
-                 ${selectedTab === "Home" ? "active" : ""}`}
+                 ${selectedTab === "Home" && "active" }`}
               aria-current="page"
             >
               {" "}
@@ -48,12 +55,12 @@ export const Sidebar = ({ selectedTab, setSelectedTab }) => {
               Home
             </a>{" "}
           </li>{" "}
-          <li onClick={()=>{handleOnclick("Createpost")}}>
+          <li onClick={()=>handleOnclick("Createpost")}>
             {" "}
             <a
               href="#"
               className={`nav-link  text-white 
-                 ${selectedTab === "Createpost" ? "active" : "" }`}
+                 ${selectedTab === "Createpost" && "active" }`}
             >
               {" "}
               <svg
@@ -67,6 +74,34 @@ export const Sidebar = ({ selectedTab, setSelectedTab }) => {
               Createpost
             </a>{" "}
           </li>{" "}
+
+        <li onClick={()=>handleOnclick("Deletepost")}>
+            {" "}
+            <a
+              href="#"
+              className={`nav-link  text-white 
+                 ${selectedTab === "Deletepost" && "active" }`}
+            >
+              {" "}
+              <svg
+                className="bi pe-none me-2"
+                width="16"
+                height="16"
+                aria-hidden="true"
+              >
+                <use xlinkHref="#speedometer2"></use>
+              </svg>
+              Deletepost
+            </a>{" "}
+          </li>{" "}
+     
+
+
+
+
+
+
+
         </ul>{" "}
         <hr />{" "}
       </div>
