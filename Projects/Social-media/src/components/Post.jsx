@@ -1,13 +1,38 @@
-export const Post=()=>{
+import { MdDelete } from "react-icons/md";
+import {PostListContext} from '../Store/posts-list-store'
+import { useContext } from "react";
 
- return(
-  <div className="card" style={{width: "18rem"}}>
-  <div className="card-body">
-    <h5 className="card-title">Card title</h5>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
- )
 
-}
+
+export const Post = ({ posttitle, postbody, posttags ,post }) => {
+ 
+  const {deletePost} = useContext(PostListContext)
+
+
+  return (
+    <div className="card" style={{ width: "18rem" }}>
+      <div className="card-body">
+        <span className="position-absolute top-0  start-100 translate-middle
+         badge rounded-pill bg-danger delete_button"  onClick={() => {deletePost(post.id)}}>
+          <MdDelete />
+        </span>
+
+        <h5 className="card-title">{posttitle}</h5>
+        <p className="post_body">{postbody}</p>
+        {posttags.map((post) => (
+          <button
+            key={post}
+            type="button"
+            className="btn btn-primary   tags_button  "
+          >
+            #{post}
+          </button>
+        ))}
+
+        <div className="alert alert-success alert_reaction" role="alert">
+          A simple success alert—check it out!
+        </div>
+      </div>
+    </div>
+  );
+};

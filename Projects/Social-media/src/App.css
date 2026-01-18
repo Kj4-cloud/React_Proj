@@ -14,3 +14,21 @@ width: 100%;
 .active{
   background-color: #9b3030;
 }
+
+.card{
+   margin: 15px;
+}
+
+.Posts_Grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+.alert_reaction{
+  margin-top: 5px;
+}
+
+.tags_button{
+  margin: 1.5px;
+}

@@ -1,12 +1,14 @@
-
+import { useContext } from 'react'
+import {PostListContext} from '../Store/posts-list-store'
 export const CreatePost = ()=>{
+
 
   return (
 
-         <form>
+         <form >
   <div className="mb-3">
     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
     <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div className="mb-3">
@@ -14,7 +16,7 @@ export const CreatePost = ()=>{
     <input type="password" className="form-control" id="exampleInputPassword1"/>
   </div>
   <div className="mb-3 form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
+    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
     <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
   </div>
   <button type="submit" className="btn btn-primary">Submit</button>
