@@ -9,7 +9,6 @@ export const PostList = () => {
      <div className="Posts_Grid">
     {postList.map((post)=>  (<Post 
     key={post.id} 
-    post
     posttitle= {post.title}
     postbody={post.body}
     posttags={post.tags}
