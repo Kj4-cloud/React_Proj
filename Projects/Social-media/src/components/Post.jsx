@@ -8,7 +8,7 @@ export const Post = ({ posttitle, postbody, posttags ,postID }) => {
  
   const {deletePost} = useContext(PostListContext)
 
-
+  
   return (
     <div className="card" style={{ width: "18rem" }}>
       <div className="card-body">
