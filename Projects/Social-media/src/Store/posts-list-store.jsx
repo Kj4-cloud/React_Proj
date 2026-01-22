@@ -6,8 +6,10 @@ const DEFAULT_CONTEXT = {
   postList: [],
   addPost: () => {},
   deletePost: () => {},
+  dispatchPostList:()=>{},
+  addInitialPost:()=>{},
 };
-
+ 
 export const PostListContext = createContext(DEFAULT_CONTEXT);
 
 const postListReducer = (currPostList, action) => {
@@ -17,9 +19,15 @@ const postListReducer = (currPostList, action) => {
     newPostList = currPostList.filter(
       (post) => post.id !== action.payload.postId,
     );
-  } else {
-    if (action.type === "ADD_POST") {
+  } 
+
+  else if(action.type === "ADD_POST"){
       newPostList = [action.payload, ...currPostList];
+  }
+
+  else{
+    if(action.type === "ADD_INITIAL_POSTS"){
+        newPostList = action.payload.posts
     }
   }
 
@@ -29,8 +37,7 @@ const postListReducer = (currPostList, action) => {
 const PostListProvider = ({ children }) => {
   const [selectedTab, setSelectedTab] = useState("Home");
   const [postList, dispatchPostList] = useReducer(
-    postListReducer,
-    DEFAULT_POST_LIST,
+    postListReducer,[],
   );
   const addPost = (Userid, Title, Body, Reactions, Tags, ID_Random) => {
     dispatchPostList({
@@ -45,6 +52,18 @@ const PostListProvider = ({ children }) => {
       },
     });
   };
+
+
+    const addInitialPost = (posts) => {
+    dispatchPostList({
+      type: "ADD_INITIAL_POSTS",
+      payload: {
+            posts
+      },
+    });
+  };
+
+
 
   const deletePost = (postId) => {
     dispatchPostList({
@@ -63,31 +82,13 @@ const PostListProvider = ({ children }) => {
         addPost,
         deletePost,
         postList,
+        dispatchPostList,
+        addInitialPost
       }}
     >
       {children}
     </PostListContext.Provider>
   );
 };
-
-const DEFAULT_POST_LIST = [
-  {
-    id: "1",
-    title: "Going to mumbai",
-    body: "Hi friends i am going to mumbai for my veacation",
-    reactions: 0,
-    userID: "user_9",
-    tags: ["vacation", "Munbai", "Enjoying"],
-  },
-
-  {
-    id: "9",
-    title: "Pass ho gai",
-    body: "4 sal kay bade pass without pack Karan ",
-    reactions: 15,
-    userID: "user_9",
-    tags: ["Graduatin", "Enjoying"],
-  },
-];
 
 export { PostListProvider };
