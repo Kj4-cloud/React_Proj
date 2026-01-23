@@ -7,7 +7,6 @@ export const Sidebar = () => {
   
   const handleOnclick = (item) => {
       setSelectedTab(item);
-      console.log(item)
   };
 
   return (
