@@ -8,15 +8,33 @@ export const PostList = () => {
   const { postList, addInitialPost } = useContext(PostListContext);
   const [fetching ,setfetching]= useState(false);
 
-  useEffect(() => {
-    setfetching(true)
-    fetch("https://dummyjson.com/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        addInitialPost(data.posts);
+  
+useEffect(() => {
+  const controller = new AbortController();
+  const signal = controller.signal;
+
+  setfetching(true);
+
+  fetch("https://dummyjson.com/posts", { signal })
+    .then(res => res.json())
+    .then(data => {
+      addInitialPost(data.posts);
       setfetching(false);
-      });
-  }, []);
+    })
+    .catch(err => {
+      if (err.name !== "AbortError") {
+        console.error(err);
+        setfetching(false);
+      }
+    });
+
+  return () => {
+    controller.abort();
+  };
+}, []);
+
+
+  
 
   return (
     <>
