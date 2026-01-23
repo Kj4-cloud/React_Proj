@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer";
 import { Sidebar } from "./components/sidebar";
 import { HomepageDisplayer } from "./components/SidebarOptions";
 
+
 function App() {
 
   return (
