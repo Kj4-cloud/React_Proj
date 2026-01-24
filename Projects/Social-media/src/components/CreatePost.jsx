@@ -15,14 +15,32 @@ export const CreatePost = () => {
     const Title = postTitle.current.value;
     const Body = postBody.current.value;
     const Reactions = reactions.current.value;
-    const Tags = tags.current.value.split("");
+    const Tags = tags.current.value.split(" ");
 
-    addPost(Userid, Title, Body, Reactions, Tags);
-    userId.current.value = "";
-    postTitle.current.value = "";
-    postBody.current.value = "";
-    reactions.current.value = "";
-    tags.current.value = "";
+    fetch('https://dummyjson.com/posts/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: Title,
+        body: Body,
+        reactions: Reactions,
+        userId: Userid,
+        tags: Tags,
+      }),
+    })
+      .then((res) => res.json())
+      .then((post) => {
+        addPost(post);
+
+        // Clear form after successful add
+        userId.current.value = '';
+        postTitle.current.value = '';
+        postBody.current.value = '';
+        reactions.current.value = '';
+        tags.current.value = '';
+      })
+      // .catch((err) => console.error('Error creating post:', err));
+ 
   };
 
   return (
