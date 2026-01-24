@@ -1,4 +1,4 @@
-import { useState, createContext, useReducer } from "react";
+import { useState, createContext, useReducer,useEffect } from "react";
 
 const DEFAULT_CONTEXT = {
   selectedTab: [],
@@ -39,17 +39,10 @@ const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(
     postListReducer,[],
   );
-  const addPost = (Userid, Title, Body, Reactions, Tags, ID_Random) => {
+  const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id: Date.now() + Math.random(),
-        title: Title,
-        body: Body,
-        reactions: Reactions,
-        userID: Userid,
-        tags: Tags,
-      },
+      payload: post,
     });
   };
 
@@ -74,6 +67,33 @@ const PostListProvider = ({ children }) => {
     });
   };
 
+
+  const [fetching, setfetching] = useState(false);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    setfetching(true);
+
+    fetch("https://dummyjson.com/posts", { signal })
+      .then(res => res.json())
+      .then(data => {
+        addInitialPost(data.posts);
+        setfetching(false);
+      })
+      .catch(err => {
+        if (err.name !== "AbortError") {
+          console.error(err);
+          setfetching(false);
+        }
+      });
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
   return (
     <PostListContext.Provider
       value={{
@@ -83,7 +103,8 @@ const PostListProvider = ({ children }) => {
         deletePost,
         postList,
         dispatchPostList,
-        addInitialPost
+        addInitialPost,
+        fetching
       }}
     >
       {children}
