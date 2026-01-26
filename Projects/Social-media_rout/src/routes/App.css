@@ -1,0 +1,51 @@
+.app-container{
+  display:flex;
+}
+
+.inner-component{
+width: 100%;
+}
+
+.side-bar{
+  display: flex;
+  height: 100vh;  
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.active{
+  background-color: #9b3030;
+}
+
+.card{
+   margin: 15px;
+}
+
+.Posts_Grid{
+  height: 100vh;
+  flex: 1;             /* take remaining height */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+  overflow-y: auto;    /* scrolling happens here */
+  padding: 20px;
+}
+
+.alert_reaction{
+  margin-top: 5px;
+}
+
+.tags_button{
+  margin: 1.5px;
+}
+
+.create-post{
+  margin: 20px;
+  border: 3px solid #4a2828;
+  padding: 8px;
+}
+
+.Loader{
+  margin-top: 50vh;
+}
