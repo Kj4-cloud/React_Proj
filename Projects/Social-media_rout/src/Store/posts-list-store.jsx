@@ -68,31 +68,6 @@ const PostListProvider = ({ children }) => {
   };
 
 
-  const [fetching, setfetching] = useState(false);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-
-    setfetching(true);
-
-    fetch("https://dummyjson.com/posts", { signal })
-      .then(res => res.json())
-      .then(data => {
-        addInitialPost(data.posts);
-        setfetching(false);
-      })
-      .catch(err => {
-        if (err.name !== "AbortError") {
-          console.error(err);
-          setfetching(false);
-        }
-      });
-
-    return () => {
-      controller.abort();
-    };
-  }, []);
 
   return (
     <PostListContext.Provider
@@ -104,7 +79,7 @@ const PostListProvider = ({ children }) => {
         postList,
         dispatchPostList,
         addInitialPost,
-        fetching
+        // fetching
       }}
     >
       {children}
