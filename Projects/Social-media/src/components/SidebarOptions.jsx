@@ -4,12 +4,9 @@ import { CreatePost } from "./CreatePost";
 import { Other } from "./Other";
 import {PostListContext} from '../Store/posts-list-store'
 
-
 export const HomepageDisplayer =()=>{
 
-
 const {selectedTab} = useContext(PostListContext);
-
 
 const pagerendrig = () =>{
   
@@ -22,12 +19,7 @@ const pagerendrig = () =>{
    else{
      return <Other />
    }
-    
-
-}
-
-
-
+    }
  
   return (
 
