@@ -1,12 +1,9 @@
-import { useSelector } from "react-redux"
-
+import { useSelector } from "react-redux";
 export const Header= ()=>{
-
-  const  counter = useSelector(store => store.counter)
-
+const  counter = useSelector(store => store.counter);
   return(
   <>
-      <h1>This is counter Value {counter}</h1>
+     <h1>This is counter Value {counter}</h1>
   </>
   )
 }
