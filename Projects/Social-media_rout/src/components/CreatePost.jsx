@@ -1,13 +1,10 @@
-import { useContext, useRef} from "react";
+import { useContext, useRef } from "react";
 import { PostListContext } from "../Store/posts-list-store";
-import { useNavigate,Form, redirect } from "react-router-dom";
+import { useNavigate, Form, redirect } from "react-router-dom";
 
 export const CreatePost = () => {
-
-
- 
   return (
-    <Form method="POST" className="create-post"  >
+    <Form method="POST" className="create-post">
       <div className="mb-3  ">
         <label htmlFor="userId" className="form-label">
           Enter Your UserId
@@ -81,22 +78,18 @@ export const CreatePost = () => {
   );
 };
 
-
-export async function createPostAction (data){
-  const formData =await data.request.formData();
+export async function createPostAction(data) {
+  const formData = await data.request.formData();
   const postData = Object.fromEntries(formData);
   postData.tags = postData.tags.split(" ");
-
-  fetch('https://dummyjson.com/posts/add', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:JSON.stringify(postData),
-    })
-      .then((res) => res.json())
-      .then((post) => {
-        // addPost(post);
-        console.log(post)
-      
-      })
-  return redirect("/")
+  fetch("https://dummyjson.com/posts/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(postData),
+  })
+    .then((res) => res.json())
+    .then((post) => {
+      // addPost(post);
+    });
+  return redirect("/");
 }

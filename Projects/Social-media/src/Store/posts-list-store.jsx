@@ -39,13 +39,13 @@ const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(
     postListReducer,[],
   );
+
   const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
       payload: post,
     });
   };
-
 
     const addInitialPost = (posts) => {
     dispatchPostList({
@@ -55,8 +55,6 @@ const PostListProvider = ({ children }) => {
       },
     });
   };
-
-
 
   const deletePost = (postId) => {
     dispatchPostList({
@@ -69,7 +67,6 @@ const PostListProvider = ({ children }) => {
 
 
   const [fetching, setfetching] = useState(false);
-
   useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
