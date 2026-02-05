@@ -3,20 +3,28 @@ import { useContext, useEffect, useState } from "react";
 import { PostListContext } from "../Store/posts-list-store";
 import { Welcome } from "./WelcomeMessage";
 import { LoadingSpinner } from "./LoadingSpineer";
+import { useLoaderData } from "react-router-dom";
+ export const PostList = () => {
 
-export const PostList = () => {
-  const { postList,fetching } = useContext(PostListContext);
+  const postList = useLoaderData();
 
   return (
     <>
-      {fetching && <LoadingSpinner />}
-      {!fetching && postList.length === 0 && <Welcome></Welcome>}
+      {/* {fetching && <LoadingSpinner />} */}
+      { postList.length === 0 && <Welcome></Welcome>}
       <div className="Posts_Grid">
-        {!fetching &&
-          postList.map((post) => (
+        {postList.map((post) => (
             <Post key={post.id} post={post} />
           ))}
       </div>
     </>
   );
 };
+
+export const postLoader = () =>{
+ return  fetch("https://dummyjson.com/posts")
+      .then((res) => res.json())
+      .then((data) => {
+        return data.posts
+      });
+}
